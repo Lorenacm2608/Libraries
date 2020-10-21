@@ -17,7 +17,7 @@ public class Usuario {
     private String usuario;
     private String email;
     private String nombre;
-    private boolean estado=true;
+    private boolean estado=false;
     private boolean privilegio=false;
     private String contrasenia;
     private Date ultimoAcceso;
