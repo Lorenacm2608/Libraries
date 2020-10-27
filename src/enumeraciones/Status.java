@@ -9,7 +9,6 @@ package enumeraciones;
  *
  * @author 2dam
  */
-public enum Privilegio {
-    USER,ADMIN
+public enum Status {
+    DISABLE, ENABLE
 }
-

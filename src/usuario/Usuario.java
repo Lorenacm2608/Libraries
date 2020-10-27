@@ -5,6 +5,10 @@
  */
 package usuario;
 
+import enumeraciones.Privilegio;
+import static enumeraciones.Privilegio.USER;
+import enumeraciones.Status;
+import static enumeraciones.Status.ENABLE;
 import java.util.Date;
 
 /**
@@ -17,14 +21,15 @@ public class Usuario {
     private String usuario;
     private String email;
     private String nombre;
-    private boolean estado=false;
-    private boolean privilegio=false;
+    private Status estado;
+    private Privilegio privilegio;
     private String contrasenia;
     private Date ultimoAcceso;
     private String UltimaContrasenia;
     
     /** Creamos el setDatos donde vamos a meter los datos del usuario que hay que meter manualmente **/
     public void setDatos(){
+        
         System.out.println("Introduce el usuario");
         usuario=utilidades.Utilidades.introducirCadena();
         System.out.println("Introduce el email");
@@ -41,12 +46,12 @@ public class Usuario {
         System.out.println("El email "+email);
         System.out.println("El nombre "+nombre);
         
-        if(estado==true){
+        if(estado==Status.ENABLE){
         System.out.println("El estado es activado");
         }else{
         System.out.println("El estado es desactivado");    
         }
-        if(estado==true){
+        if(privilegio==Privilegio.ADMIN){
         System.out.println("El privilegio es admin");
         }else{
         System.out.println("El privilegio es user");    
@@ -58,7 +63,8 @@ public class Usuario {
     }
     /** Constructor para crear un usuario vacio */ 
     public Usuario(){
-        
+        this.estado=ENABLE;
+        this.privilegio=USER;
     }
     
     /** Aqui hemos generado todos los setters y getters de los atributos de la clase Usuario */
@@ -85,23 +91,7 @@ public class Usuario {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
-
-    public boolean isPrivilegio() {
-        return privilegio;
-    }
-
-    public void setPrivilegio(boolean privilegio) {
-        this.privilegio = privilegio;
-    }
-
+    
     public String getcontrasenia() {
         return contrasenia;
     }
