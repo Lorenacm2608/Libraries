@@ -1,0 +1,10 @@
+package libreries;
+/**
+ *
+ * @author Moroni Collazos Fiestas
+ * 
+ */
+public enum Tipo {
+    LOGIN,SIGNUP,SERVIDOR,CLIENTE, USUARIO_NO_EXISTE, CONTRASENA_ERRONEA, EMAIL_EXISTENTE, ERROR_SERVIDOR, ERROR_BASE_DE_DATOS, USUARIO_EXISTENTE, EMAIL_NO_EXISTE, OK
+    
+}

@@ -1,14 +1,17 @@
+package exceptions;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package signable;
 
 /**
  *
- * @author 2dam
+ * @author user
  */
-public class SignableFactory {
-    
+public class ErrorServerException extends Exception{
+    public ErrorServerException(){
+        super("Error de comunicacion con el servidor");
+    }
 }
