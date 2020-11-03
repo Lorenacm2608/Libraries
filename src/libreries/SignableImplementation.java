@@ -73,6 +73,7 @@ public class SignableImplementation implements Signable {
         try {
             //socket = new Socket(rb.getString("host"), port);
             socket = new Socket("127.0.0.1", 5555);
+            socket.setSoTimeout (10 * 1000);
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
             message = new Message(u, Tipo.LOGIN);
@@ -92,18 +93,23 @@ public class SignableImplementation implements Signable {
                     case USUARIO_NO_EXISTE:
                         throw new UsuarioNoEncontradoException();
                     case OK:
+                         System.out.println("Salida OK");
                         return message.getUsuario();
+                        
                 }
             } catch (ClassNotFoundException ex) {
+              
                 // Logger.getLogger(Libreries.SignableImplementationCliente.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
                 ois.close();
                 oos.close();
                 socket.close();
+                 System.out.println("Salida Finally");
             }
         } catch (IOException ex) {
-           
+            System.out.println("Salida IO");
         }
+        System.out.println("Salida 0");
         return null;
 
     }
